@@ -4,8 +4,8 @@
 
 ### 📦 crates.io
 
-You can install bluetui from crates.io
+You can install wifitui from crates.io
 
 ```bash
-cargo install bluetui
+cargo install wifitui
 ```
