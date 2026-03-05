@@ -25,6 +25,32 @@ pub fn render(app: &App, frame: &mut Frame, area: Rect) {
             ("f", "Forget"),
             ("s", "Scan"),
             ("w", "WiFi on/off"),
+        ]
+    };
+
+    let mut spans: Vec<Span> = Vec::new();
+    for (i, (key, action)) in keybindings.iter().enumerate() {
+        if i > 0 {
+            spans.push(Span::styled("  │  ", Style::default().fg(TEXT_SECONDARY)));
+        }
+        spans.push(Span::styled(
+            *key,
+            Style::default()
+                .fg(KEY_COLOR)
+                .add_modifier(Modifier::BOLD),
+        ));
+        spans.push(Span::raw(" "));
+        spans.push(Span::styled(*action, Style::default().fg(TEXT_SECONDARY)));
+    }
+
+    let help_line = Line::from(spans);
+    let paragraph = Paragraph::new(help_line).alignment(Alignment::Center);
+    frame.render_widget(paragraph, area);
+}
+
+pub fn render_bottom(frame: &mut Frame, area: Rect) {
+    let keybindings: Vec<(&str, &str)> = {
+        vec![
             ("j/↓", "Down"),
             ("k/↑", "Up"),
             ("q", "Quit"),

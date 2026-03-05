@@ -1,9 +1,13 @@
 [package]
 name = "wifitui"
 version = "0.1.0"
-edition = "2021"
+license = "GPL-3.0"
+edition = "2024"
+readme = "README.md"
+authors = ["El-ameen Daiyabu <thisiselameen@gmail.com>"]
 description = "A TUI for managing WiFi on Linux via NetworkManager"
-license = "MIT"
+homepage = "https://github.com/elameendaiyabu/wifitui"
+repository = "https://github.com/elameendaiyabu/wifitui"
 
 [dependencies]
 # TUI framework
@@ -35,3 +39,9 @@ env_logger = "0.11"
 thiserror = "2"
 bitflags = "2"
 futures = "0.3"
+
+[profile.release]
+strip = true
+codegen-units = 1
+lto = "fat"
+opt-level = 3

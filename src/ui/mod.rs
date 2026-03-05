@@ -23,7 +23,8 @@ pub fn render(app: &mut App, frame: &mut Frame) {
     let main_layout = Layout::vertical([
         Constraint::Min(8),
         Constraint::Length(5),
-        Constraint::Length(3),
+        Constraint::Length(2),
+        Constraint::Length(2),
     ])
     .split(area);
 
@@ -31,6 +32,7 @@ pub fn render(app: &mut App, frame: &mut Frame) {
     networks::render(app, frame, main_layout[0]);
     adapter::render(app, frame, main_layout[1]);
     help::render(app, frame, main_layout[2]);
+    help::render_bottom( frame, main_layout[3]);
 
     // Modal overlays (rendered last, on top)
     if app.password_modal.visible {
