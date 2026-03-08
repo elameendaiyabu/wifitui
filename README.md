@@ -35,7 +35,7 @@ cargo install wifitui
 ```bash
 git clone https://github.com/elameendaiyabu/wifitui.git
 cd wifitui
-cargo install --path .
+cargo build --release
 ```
 
 ## Usage
